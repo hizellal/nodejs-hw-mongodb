@@ -16,7 +16,13 @@ const contactSchema = mongoose.Schema(
       type: String,
       required: false,
     },
-    isFavourite: { type: Boolean, default: false },
+
+    isFavourite: { 
+      type: Boolean, 
+      required: false,
+      default: false, 
+    },
+
     contactType: {
       type: String,
       enum: ['work', 'home', 'personal'],
@@ -24,6 +30,9 @@ const contactSchema = mongoose.Schema(
       default: 'personal',
     },
   },
-  { timestamps: true },
+  { 
+    timestamps: true,
+    versionKey: false,
+  },
 );
 export const Contacts = mongoose.model('contact', contactSchema);
